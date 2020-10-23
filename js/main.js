@@ -34,7 +34,7 @@ console.log(campoBombe);
 
 //LOOP GIOCO
 var c = 0;
-while ( ( c < (size - bombe) ) && (! campoBombe.includes(campoGioco.pop()) ) ) {
+while ( ( c < (size - bombe) ) && (! campoBombe.includes(campoGioco.pop() ) ) ) {
   var numUtente = parseInt( prompt('Inserisci un numero tra 1 e 100') );
   if (! campoGioco.includes(numUtente) ) {
     campoGioco.push(numUtente);
@@ -46,6 +46,8 @@ while ( ( c < (size - bombe) ) && (! campoBombe.includes(campoGioco.pop()) ) ) {
 }
 console.log(campoGioco);
 
+//RISULTATO PARTITA
+alert('Il tuo punteggio è : ' + (c - 1) + ' su un massimo di : ' + (size - bombe) );
 
 
 //UTILITY
