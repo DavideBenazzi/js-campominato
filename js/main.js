@@ -21,14 +21,16 @@ var numUtente = []; //numeri inseriti dall'utente
 var campoBombe = []; //numeri bombe in gioco
 var campoGioco = []; //numeri in gioco
 //LOOP CREAZIONE BOMBE DEL PC
-for (var i = 0; i < bombe; i++) {
-  numPc = random(1 , 100);
+for (var i = 0; i < bombe;) {
+  numPc = random(1 , size);
   if (! campoBombe.includes(numPc) ) {
     campoBombe.push(numPc);
+    i++;
   }
 }
 
 console.log(campoBombe);
+
 
 
 
