@@ -17,7 +17,7 @@ con difficoltà 2 => tra 1 e 50
 var size = 20; // grandezza del campo di gioco
 var bombe = 5; //numero di bombe
 var numPc = 0; //numero generato dal pc
-var numUtente = []; //numeri inseriti dall'utente
+var numUtente = 0; //numeri inseriti dall'utente
 var campoBombe = []; //numeri bombe in gioco
 var campoGioco = []; //numeri in gioco
 //LOOP CREAZIONE BOMBE DEL PC
@@ -28,10 +28,19 @@ for (var i = 0; i < bombe;) {
     i++;
   }
 }
-
 console.log(campoBombe);
-
-
+//LOOP RICHIESTA NUMERO ALL'UTENTE
+for (var i = 0; i < (size - bombe);) {
+  var numUtente = parseInt( prompt('Inserisci un numero tra 1 e 100') );
+  if (! campoGioco.includes(numUtente) ) {
+    campoGioco.push(numUtente);
+    i++;
+  }
+  else {
+    alert('Hai gia\' inserito questo numero');
+  }
+}
+console.log(campoGioco);
 
 
 //UTILITY
