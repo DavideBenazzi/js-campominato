@@ -13,13 +13,15 @@ con difficoltà 0 => tra 1 e 100
 con difficoltà 1 =>  tra 1 e 80
 con difficoltà 2 => tra 1 e 50
 */
+
 //VARIABILI
-var size = 20; // grandezza del campo di gioco
+var size = 10; // grandezza del campo di gioco
 var bombe = 5; //numero di bombe
 var numPc = 0; //numero generato dal pc
 var numUtente = 0; //numeri inseriti dall'utente
 var campoBombe = []; //numeri bombe in gioco
 var campoGioco = []; //numeri in gioco
+
 //LOOP CREAZIONE BOMBE DEL PC
 for (var i = 0; i < bombe;) {
   numPc = random(1 , size);
@@ -29,18 +31,21 @@ for (var i = 0; i < bombe;) {
   }
 }
 console.log(campoBombe);
-//LOOP RICHIESTA NUMERO ALL'UTENTE
-for (var i = 0; i < (size - bombe);) {
+
+//LOOP GIOCO
+var c = 0;
+while ( ( c < (size - bombe) ) && (! campoBombe.includes(campoGioco.pop()) ) ) {
   var numUtente = parseInt( prompt('Inserisci un numero tra 1 e 100') );
   if (! campoGioco.includes(numUtente) ) {
     campoGioco.push(numUtente);
-    i++;
+    c++;
   }
   else {
     alert('Hai gia\' inserito questo numero');
   }
 }
 console.log(campoGioco);
+
 
 
 //UTILITY
