@@ -13,26 +13,31 @@ con difficoltà 0 => tra 1 e 100
 con difficoltà 1 =>  tra 1 e 80
 con difficoltà 2 => tra 1 e 50
 */
+
 //VARIABILI
-var size = 10; // grandezza del campo di gioco
-var bombe = 5; //numero di bombe
+var size = 100; // grandezza del campo di gioco
+var bombe = 16; //numero di bombe
 var numPc = 0; //numero generato dal pc
 var numUtente = 0; //numeri inseriti dall'utente
 var campoBombe = []; //numeri bombe in gioco
 var campoGioco = []; //numeri in gioco
 var verificaNum = []; //verifica numero utente per campo bombe
-//BONUS
-// switch ( prompt('A quale livello di difficolta\' vuoi giocare? ( 0 - 1 - 2 )') ) {
-//   case (0) :
-//     size = 100;
-//   case (1) :
-//     size = 80;
-//   case (2) :
-//     size = 60;
-//   default :
-//     size = 100;
-// }
+var livello = parseInt( prompt( 'A quale livello di difficolta\' vuoi giocare? ( 0 - 1 - 2 )' ) );
 
+//BONUS
+switch ( livello ) {
+  case 0 :
+    size = 100;
+    break;
+  case 1 :
+    size = 80;
+    break;
+  case 2 :
+    size = 60;
+    break;
+  default :
+    size = 100;
+}
 
 //LOOP CREAZIONE BOMBE DEL PC
 for (var i = 0; i < bombe;) {
@@ -45,8 +50,8 @@ for (var i = 0; i < bombe;) {
 console.log(campoBombe);
 
 //LOOP GIOCO
-var c = 0;
-while ( ( c < (size - bombe) ) && (! campoBombe.includes( verificaNum.pop() ) ) ) {
+var c = 1;
+while ( ( c <= (size - bombe) ) && (! campoBombe.includes( verificaNum.pop() ) ) ) {
   var numUtente = parseInt( prompt('Inserisci un numero tra 1 e 100') );
   if (! campoGioco.includes(numUtente) ) {
     verificaNum.push(numUtente);
